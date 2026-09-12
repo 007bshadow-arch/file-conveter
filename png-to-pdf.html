@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convert PNG to PDF Online - Crisp & Transparent Image to PDF | Converter Pro</title>
+  <meta name="description" content="Convert PNG images with transparent backgrounds or diagrams into clean, high-resolution PDF pages online. Fast, secure, and completely free." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-default-format="pdf">
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span>Converter<span style="color:var(--primary);">Pro</span></span>
+        <span class="logo-badge">PNG to PDF</span>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+        <li><a href="/png-to-pdf.html" class="nav-link active">PNG to PDF</a></li>
+        <li><a href="/heic-to-jpg.html" class="nav-link">HEIC to JPG</a></li>
+        <li><a href="/how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="/privacy.html" class="nav-link">Privacy</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        High Fidelity &bull; Lossless Clarity Preserved
+      </div>
+      <h1 class="hero-title">
+        Convert <span class="gradient-text">PNG to PDF</span> Online
+      </h1>
+      <p class="hero-subtitle">
+        Preserve sharp lines, text, illustrations, and transparent graphics. Merge multiple PNG images into a pristine presentation-ready PDF.
+      </p>
+    </section>
+
+    <!-- Converter Main Card -->
+    <section class="converter-card" id="converterApp">
+      <div id="alertBox" class="alert-box"></div>
+
+      <!-- Upload Zone -->
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" multiple accept=".png" style="display:none;" />
+        <div class="dropzone-icon-wrap">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <div class="dropzone-title">Drop your PNG images here</div>
+        <div class="dropzone-desc">Batch upload single or multiple PNG images to convert into PDF</div>
+        <button type="button" class="btn-browse">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          Select PNG Files
+        </button>
+        <div class="file-pills">
+          <span class="file-pill">PNG Format</span>
+          <span class="file-pill">Preserves Transparency</span>
+          <span class="file-pill">Up to 50MB</span>
+        </div>
+      </div>
+
+      <!-- Preview Zone -->
+      <div class="preview-zone" id="previewZone">
+        <input type="file" id="addMoreInput" multiple accept=".png" style="display:none;" />
+        
+        <div class="preview-header">
+          <div class="preview-summary">
+            <span class="preview-badge-count" id="fileCountBadge">0 files</span>
+            <span id="totalSizeLabel" style="font-size:0.875rem; font-weight:600; color:var(--text-muted);">Total: 0 MB</span>
+          </div>
+          <div class="preview-actions">
+            <button type="button" class="btn-secondary" id="btnAddMore">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Add More PNGs
+            </button>
+            <button type="button" class="btn-danger-outline" id="btnClearAll">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-grid" id="previewGrid"></div>
+
+        <!-- Settings Bar -->
+        <div class="settings-panel" id="settingsPanel">
+          <div class="settings-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            PDF Output Configuration
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label">Target Format</label>
+            <div class="format-pill-group">
+              <label class="format-pill-label">
+                <input type="radio" name="targetFormat" value="pdf" class="format-pill-radio" checked />
+                <span class="format-pill-btn">PDF Document</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="settings-grid" id="pdfOptionsGroup">
+            <div class="form-group">
+              <label for="orientationSelect" class="form-label">Page Orientation</label>
+              <select id="orientationSelect" class="form-select">
+                <option value="portrait" selected>Portrait (Standard)</option>
+                <option value="landscape">Landscape</option>
+                <option value="auto">Auto (Match Image Dimension)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="marginSelect" class="form-label">Margins</label>
+              <select id="marginSelect" class="form-select">
+                <option value="none">No Margin</option>
+                <option value="small" selected>Small Margin</option>
+                <option value="large">Large Margin</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="qualitySelect" class="form-label">Visual Quality</label>
+              <select id="qualitySelect" class="form-select">
+                <option value="high" selected>High (Crisp Text & Icons)</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low (Compact File)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-area">
+          <button type="button" class="btn-convert" id="btnConvert">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            Convert PNG to PDF
+          </button>
+
+          <div class="progress-container" id="progressContainer">
+            <div class="progress-info">
+              <span id="progressStatus">Rendering PNG pages...</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressBar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Result -->
+      <div class="download-zone" id="downloadZone">
+        <div class="download-icon">&check;</div>
+        <h2 class="download-title">PNG Converted to PDF!</h2>
+        <p class="download-subtitle">Your PDF document is compiled and ready.</p>
+        
+        <div class="download-file-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <div class="download-file-details">
+            <div class="download-file-name" id="downloadFileName">output.pdf</div>
+            <div class="download-file-size" id="downloadFileSize">2.1 MB</div>
+          </div>
+        </div>
+
+        <div class="download-actions">
+          <a href="#" class="btn-download" id="btnDownloadLink" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+          </a>
+          <button type="button" class="btn-reset" id="btnReset">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            Convert More PNGs
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section style="margin: 4rem 0;">
+      <h2 class="section-title">How to Convert PNG to PDF</h2>
+      <p class="section-subtitle">Retain lossless graphic fidelity while packaging images into a standard PDF.</p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h3 class="step-title">Upload PNGs</h3>
+          <p class="step-desc">Add screenshots, infographics, or graphic charts in .png format.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h3 class="step-title">Configure Page Layout</h3>
+          <p class="step-desc">Pick portrait or landscape page flow, set custom margins, and reorder pages.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h3 class="step-title">Instant Download</h3>
+          <p class="step-desc">Click Convert and immediately download the lightweight, high-dpi PDF.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <span>Converter<span style="color:var(--primary);">Pro</span></span>
+          </div>
+          <p>The fast, secure, and privacy-conscious online tool for converting images and documents instantly.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="/jpg-to-pdf.html" class="footer-link">JPG to PDF</a></li>
+            <li><a href="/png-to-pdf.html" class="footer-link">PNG to PDF</a></li>
+            <li><a href="/heic-to-jpg.html" class="footer-link">HEIC to JPG</a></li>
+            <li><a href="/index.html" class="footer-link">All Converters</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Information</div>
+          <ul class="footer-links">
+            <li><a href="/how-it-works.html" class="footer-link">How It Works</a></li>
+            <li><a href="/how-it-works.html#faq" class="footer-link">FAQ</a></li>
+            <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Support</div>
+          <ul class="footer-links">
+            <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Converter Pro. All rights reserved. Files auto-purged within 15 minutes.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

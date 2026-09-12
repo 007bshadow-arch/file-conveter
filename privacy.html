@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy & Security Guarantee | Converter Pro</title>
+  <meta name="description" content="Converter Pro data retention and privacy policy: automated 15-minute file deletion, zero tracking, and no permanent databases." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span>Converter<span style="color:var(--primary);">Pro</span></span>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html" class="nav-link">Home</a></li>
+        <li><a href="/jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+        <li><a href="/png-to-pdf.html" class="nav-link">PNG to PDF</a></li>
+        <li><a href="/heic-to-jpg.html" class="nav-link">HEIC to JPG</a></li>
+        <li><a href="/how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="/privacy.html" class="nav-link active">Privacy</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Zero Database &bull; Strict 15-Minute Data Deletion
+      </div>
+      <h1 class="hero-title">
+        Privacy Policy &amp; <span class="gradient-text">Security Guarantee</span>
+      </h1>
+      <p class="hero-subtitle">
+        We believe that your personal photos, official receipts, and private documents belong solely to you. Learn how Converter Pro protects your data at every step.
+      </p>
+    </section>
+
+    <!-- Detailed Policy Document -->
+    <article class="info-content">
+      <div class="highlight-box">
+        <p>
+          <strong>Summary Guarantee:</strong> Converter Pro runs in a completely ephemeral environment without databases. Uploaded and converted files are stored exclusively in temporary directories and are permanently deleted within 15 minutes of creation. We never view, sell, or analyze your content.
+        </p>
+      </div>
+
+      <h2>1. The 15-Minute Automated Purge Cycle</h2>
+      <p>
+        When you upload files for conversion, they are assigned random cryptographic UUIDs and stored in an isolated, temporary server directory. Once your conversion is completed:
+      </p>
+      <ul>
+        <li>Original uploaded files are deleted from the disk immediately after the conversion pipeline finishes.</li>
+        <li>Converted download files in the output directory are monitored by an automated background cleanup process.</li>
+        <li>Every 10 minutes, the cleanup script scans all files and permanently unlinks any file that has existed for longer than <strong>15 minutes</strong>.</li>
+        <li>After 15 minutes, download links automatically expire, returning an HTTP 404 response.</li>
+      </ul>
+
+      <h2>2. Zero Database Architecture</h2>
+      <p>
+        Unlike many web services that require you to log in with an email or create an account, Converter Pro operates completely database-free:
+      </p>
+      <ul>
+        <li><strong>No User Accounts:</strong> We do not ask for or store names, passwords, credit card numbers, or social profiles.</li>
+        <li><strong>No Metadata Scraping:</strong> We do not catalog your image metadata, EXIF GPS tags, or document contents.</li>
+        <li><strong>No Persistent Records:</strong> When your browser session ends and the 15-minute timer expires, all traces of your files are eliminated.</li>
+      </ul>
+
+      <h2 id="security">3. Security In Transit &amp; Server Hardening</h2>
+      <p>
+        Our backend server incorporates robust security measures to prevent interception and unauthorized access:
+      </p>
+      <ul>
+        <li><strong>Helmet Security Headers:</strong> The server uses the <code>helmet</code> security suite to protect against Cross-Site Scripting (XSS), clickjacking, MIME sniffing, and malicious code injections.</li>
+        <li><strong>Input Sanitization &amp; Directory Traversal Guards:</strong> All download requests are validated against strict regex patterns (alphanumeric and dashes only) to prevent unauthorized file system traversal attacks.</li>
+        <li><strong>Strict Payload Limits:</strong> Multer upload limits are strictly capped at 50MB per file and a maximum of 30 files per request to prevent denial of service.</li>
+      </ul>
+
+      <h2>4. Third-Party Analytics &amp; Tracking</h2>
+      <p>
+        Converter Pro does not use invasive ad-trackers or cross-site tracking cookies. We do not sell user data to advertising networks or brokerages.
+      </p>
+
+      <h2>5. Questions Regarding Privacy?</h2>
+      <p>
+        If you have any questions or concerns regarding our privacy standards or technical infrastructure, please do not hesitate to contact our team via our <a href="/contact.html">Support Form</a>.
+      </p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <span>Converter<span style="color:var(--primary);">Pro</span></span>
+          </div>
+          <p>The fast, secure, and privacy-conscious online tool for converting images and documents instantly.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="/jpg-to-pdf.html" class="footer-link">JPG to PDF</a></li>
+            <li><a href="/png-to-pdf.html" class="footer-link">PNG to PDF</a></li>
+            <li><a href="/heic-to-jpg.html" class="footer-link">HEIC to JPG</a></li>
+            <li><a href="/index.html" class="footer-link">All Converters</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Information</div>
+          <ul class="footer-links">
+            <li><a href="/how-it-works.html" class="footer-link">How It Works</a></li>
+            <li><a href="/how-it-works.html#faq" class="footer-link">FAQ</a></li>
+            <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Support</div>
+          <ul class="footer-links">
+            <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Converter Pro. All rights reserved. Zero logs &amp; zero databases.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

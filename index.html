@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Universal Image & Document Converter | Free, Fast & Private</title>
+  <meta name="description" content="Convert JPG, PNG, WEBP, and HEIC images to PDF or other image formats. Fast, private, and 100% free with no account required." />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body data-default-format="pdf">
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="/index.html" class="brand-logo">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <span>Converter<span style="color:var(--primary);">Pro</span></span>
+        <span class="logo-badge">Fast & Secure</span>
+      </a>
+
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        &#9776;
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/index.html" class="nav-link active">Home</a></li>
+        <li><a href="/jpg-to-pdf.html" class="nav-link">JPG to PDF</a></li>
+        <li><a href="/png-to-pdf.html" class="nav-link">PNG to PDF</a></li>
+        <li><a href="/heic-to-jpg.html" class="nav-link">HEIC to JPG</a></li>
+        <li><a href="/how-it-works.html" class="nav-link">How It Works</a></li>
+        <li><a href="/privacy.html" class="nav-link">Privacy</a></li>
+        <li><a href="/contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        No Sign-Up Required &bull; Auto 15-Min File Purge
+      </div>
+      <h1 class="hero-title">
+        Universal <span class="gradient-text">Image & Document</span> Converter
+      </h1>
+      <p class="hero-subtitle">
+        Transform your JPG, PNG, WEBP, and iPhone HEIC files into crisp PDFs or alternate image formats in seconds. Free, responsive, and completely private.
+      </p>
+    </section>
+
+    <!-- Converter Main Card -->
+    <section class="converter-card" id="converterApp">
+
+      <!-- Alert Notification Area -->
+      <div id="alertBox" class="alert-box"></div>
+
+      <!-- Drag & Drop Upload Zone -->
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="fileInput" multiple accept=".jpg,.jpeg,.png,.webp,.heic,.heif" style="display:none;" />
+        <div class="dropzone-icon-wrap">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+          </svg>
+        </div>
+        <div class="dropzone-title">Drop your images here, or browse files</div>
+        <div class="dropzone-desc">Supports multiple file selection up to 50MB per file</div>
+        <button type="button" class="btn-browse">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          Select Files from Device
+        </button>
+        <div class="file-pills">
+          <span class="file-pill">JPG / JPEG</span>
+          <span class="file-pill">PNG</span>
+          <span class="file-pill">WEBP</span>
+          <span class="file-pill">HEIC (iPhone)</span>
+        </div>
+      </div>
+
+      <!-- Interactive Preview Zone (Reorder, Rotate, Delete) -->
+      <div class="preview-zone" id="previewZone">
+        <input type="file" id="addMoreInput" multiple accept=".jpg,.jpeg,.png,.webp,.heic,.heif" style="display:none;" />
+        
+        <div class="preview-header">
+          <div class="preview-summary">
+            <span class="preview-badge-count" id="fileCountBadge">0 files</span>
+            <span id="totalSizeLabel" style="font-size:0.875rem; font-weight:600; color:var(--text-muted);">Total: 0 MB</span>
+          </div>
+          <div class="preview-actions">
+            <button type="button" class="btn-secondary" id="btnAddMore">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              Add More Files
+            </button>
+            <button type="button" class="btn-danger-outline" id="btnClearAll">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              Clear All
+            </button>
+          </div>
+        </div>
+
+        <!-- Previews Grid -->
+        <div class="preview-grid" id="previewGrid"></div>
+
+        <!-- Settings Bar / Panel -->
+        <div class="settings-panel" id="settingsPanel">
+          <div class="settings-heading">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            Conversion Settings
+          </div>
+
+          <!-- Format Selector -->
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label">Output Target Format</label>
+            <div class="format-pill-group">
+              <label class="format-pill-label">
+                <input type="radio" name="targetFormat" value="pdf" class="format-pill-radio" checked />
+                <span class="format-pill-btn">PDF Document</span>
+              </label>
+              <label class="format-pill-label">
+                <input type="radio" name="targetFormat" value="jpg" class="format-pill-radio" />
+                <span class="format-pill-btn">JPG Image</span>
+              </label>
+              <label class="format-pill-label">
+                <input type="radio" name="targetFormat" value="png" class="format-pill-radio" />
+                <span class="format-pill-btn">PNG Image</span>
+              </label>
+              <label class="format-pill-label">
+                <input type="radio" name="targetFormat" value="webp" class="format-pill-radio" />
+                <span class="format-pill-btn">WEBP Image</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- PDF Specific Options -->
+          <div class="settings-grid" id="pdfOptionsGroup">
+            <div class="form-group">
+              <label for="orientationSelect" class="form-label">Page Orientation</label>
+              <select id="orientationSelect" class="form-select">
+                <option value="portrait" selected>Portrait (Standard)</option>
+                <option value="landscape">Landscape</option>
+                <option value="auto">Auto (Match Image)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="marginSelect" class="form-label">Page Margins</label>
+              <select id="marginSelect" class="form-select">
+                <option value="none">No Margin (Full Page)</option>
+                <option value="small" selected>Small Margin (Standard)</option>
+                <option value="large">Large Margin (Spacious)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="qualitySelect" class="form-label">Image Compression</label>
+              <select id="qualitySelect" class="form-select">
+                <option value="high">High Quality (Max Clarity)</option>
+                <option value="medium" selected>Medium (Balanced Size & Quality)</option>
+                <option value="low">Low (Smallest File Size)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Area (Convert Now CTA) -->
+        <div class="action-area">
+          <button type="button" class="btn-convert" id="btnConvert">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+            </svg>
+            Convert Now
+          </button>
+
+          <!-- Visual Progress Bar -->
+          <div class="progress-container" id="progressContainer">
+            <div class="progress-info">
+              <span id="progressStatus">Uploading files...</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progressBar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Download Result Area (Post-Conversion) -->
+      <div class="download-zone" id="downloadZone">
+        <div class="download-icon">&check;</div>
+        <h2 class="download-title">Conversion Complete!</h2>
+        <p class="download-subtitle">Your converted document is ready for instant download.</p>
+        
+        <div class="download-file-card">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          <div class="download-file-details">
+            <div class="download-file-name" id="downloadFileName">output.pdf</div>
+            <div class="download-file-size" id="downloadFileSize">1.2 MB</div>
+          </div>
+        </div>
+
+        <div class="download-actions">
+          <a href="#" class="btn-download" id="btnDownloadLink" download>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download File
+          </a>
+          <button type="button" class="btn-reset" id="btnReset">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+            Convert Another File
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Value Propositions & Features -->
+    <section class="features-section">
+      <h2 class="section-title">Why Choose Converter Pro?</h2>
+      <p class="section-subtitle">Engineered for speed, privacy, and seamless file fidelity.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3 class="feature-title">Lightning Fast</h3>
+          <p class="feature-text">High-performance processing powered by Sharp and native vector engines for sub-second conversions.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">15-Min Auto Wipe</h3>
+          <p class="feature-text">Your files are temporary. Our automated lifecycle cron wipes all uploads and outputs every 15 minutes.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3 class="feature-title">Zero Sign-Up Required</h3>
+          <p class="feature-text">No accounts, no email verification, and no subscriptions. Upload, convert, and get back to work immediately.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrap">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+            </svg>
+          </div>
+          <h3 class="feature-title">High Resolution</h3>
+          <p class="feature-text">Preserves original color gamuts, dpi quality, and aspect ratios across every single PDF and image page.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <span>Converter<span style="color:var(--primary);">Pro</span></span>
+          </div>
+          <p>The fast, secure, and privacy-conscious online tool for converting images and documents instantly.</p>
+        </div>
+
+        <div>
+          <div class="footer-heading">Tools</div>
+          <ul class="footer-links">
+            <li><a href="/jpg-to-pdf.html" class="footer-link">JPG to PDF</a></li>
+            <li><a href="/png-to-pdf.html" class="footer-link">PNG to PDF</a></li>
+            <li><a href="/heic-to-jpg.html" class="footer-link">HEIC to JPG</a></li>
+            <li><a href="/index.html" class="footer-link">All Converters</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Information</div>
+          <ul class="footer-links">
+            <li><a href="/how-it-works.html" class="footer-link">How It Works</a></li>
+            <li><a href="/how-it-works.html#faq" class="footer-link">FAQ</a></li>
+            <li><a href="/privacy.html" class="footer-link">Privacy Policy</a></li>
+            <li><a href="/privacy.html#security" class="footer-link">Security Standard</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-heading">Support</div>
+          <ul class="footer-links">
+            <li><a href="/contact.html" class="footer-link">Contact Us</a></li>
+            <li><a href="/contact.html#feedback" class="footer-link">Feedback</a></li>
+            <li><a href="/how-it-works.html" class="footer-link">Help Center</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Converter Pro. All rights reserved. Completely ephemeral; files auto-purged every 15 minutes.</div>
+        <div>Built with semantic HTML5, CSS Variables, and modular Vanilla JS.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>
